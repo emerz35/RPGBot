@@ -1,10 +1,9 @@
 package com.bot.objects;
 
+import com.bot.containers.Storage;
 import com.bot.items.Item;
 import com.bot.items.armour.Armour;
 import com.bot.items.weapons.Weapon;
-import java.util.LinkedList;
-import java.util.List;
 import org.javacord.api.entity.user.User;
 
 /**
@@ -13,7 +12,7 @@ import org.javacord.api.entity.user.User;
  */
 public class Player extends Object{
     private final User user;
-    private final List<Item> items = new LinkedList<>();
+    private final Storage<Item> items = new Storage();
     private int money = 100;
     public Player(Weapon weapon, Armour armour, User user){
         super(weapon,armour);
@@ -23,15 +22,6 @@ public class Player extends Object{
     @Override
     public void die() {
         throw new UnsupportedOperationException("Not supported yet."); 
-    }
-    public void addItem(Item item){
-        items.add(item);
-    }
-    public void removeItem(Item item){
-        items.remove(item);
-    }
-    public void getItem(int pos){
-        items.get(pos);
     }
     public User getUser(){
         return user;
