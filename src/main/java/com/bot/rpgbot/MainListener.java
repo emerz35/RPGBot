@@ -19,7 +19,6 @@ public class MainListener implements MessageCreateListener{
                 e.getChannel().sendMessage(new EmbedBuilder().setImage(new File("src/main/images/download.jpg")));
                 e.getChannel().sendMessage("Image Sent");
                 break;
-        
         }
     }
     
