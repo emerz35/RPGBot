@@ -38,4 +38,7 @@ public class Player extends Object{
     public boolean checkMoney(int cost){
         return this.money >= cost;
     }
+    public Storage getInventory(){
+        return items;
+    }
 }
