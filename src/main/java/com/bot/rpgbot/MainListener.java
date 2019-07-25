@@ -1,6 +1,7 @@
 package com.bot.rpgbot;
 
 import java.io.File;
+import java.util.HashMap;
 import org.javacord.api.entity.message.embed.EmbedBuilder;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
@@ -10,16 +11,15 @@ import org.javacord.api.listener.message.MessageCreateListener;
  * @author Charlie Hands
  */
 public class MainListener implements MessageCreateListener{
-
+    public final HashMap<String,CommandAction> commands = new HashMap<>();
+    public MainListener(){
+        commands.put("!image",e -> {
+            e.getChannel().sendMessage(new EmbedBuilder().setImage(new File("src/main/images/download.jpg")));
+            e.getChannel().sendMessage("Image Sent");
+        });
+    }
     @Override
     public void onMessageCreate(MessageCreateEvent e) {
-        switch(e.getMessage().getContent()){
-            case "!image": 
-                //e.getChannel().sendMessage(new EmbedBuilder().setImage(img,"jpeg"));
-                e.getChannel().sendMessage(new EmbedBuilder().setImage(new File("src/main/images/download.jpg")));
-                e.getChannel().sendMessage("Image Sent");
-                break;
-        }
+        commands.get(e.getMessage().getContent().split(" ")[0]).action(e);
     }
-    
 }

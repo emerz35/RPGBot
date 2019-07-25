@@ -2,7 +2,9 @@ package com.bot.containers;
 import com.bot.items.Stackable;
 import java.util.HashMap;
 /**
- *
+ * 
+ * @param <T> The class of the item to be stored
+ * To be changed
  * @author Charlie Hands
  * 
  */

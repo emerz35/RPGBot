@@ -60,7 +60,7 @@
                 <manifest>
                   <addClasspath>true</addClasspath>
                   <classpathPrefix>lib/</classpathPrefix>
-                  <mainClass>com.bot.danddbot.Main</mainClass>
+                  <mainClass>com.bot.rpgbot.Main</mainClass>
                 </manifest>
               </archive>
             </configuration>
