@@ -1,7 +1,10 @@
 package com.bot.rpgbot;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.javacord.api.entity.message.embed.EmbedBuilder;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
@@ -19,6 +22,13 @@ public class MainListener implements MessageCreateListener{
         commands.put("!image",e -> {
             e.getChannel().sendMessage(new EmbedBuilder().setImage(new File("src/main/images/download.jpg")));
             e.getChannel().sendMessage("Image Sent");
+        });
+        commands.put("!database",e -> {
+            try {
+                e.getChannel().sendMessage("" + new DBConnect().databaseTest());
+            } catch (SQLException ex) {
+                Logger.getLogger(MainListener.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
     @Override
