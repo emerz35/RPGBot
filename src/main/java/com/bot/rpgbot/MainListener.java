@@ -12,6 +12,9 @@ import org.javacord.api.listener.message.MessageCreateListener;
  */
 public class MainListener implements MessageCreateListener{
     public final HashMap<String,CommandAction> commands = new HashMap<>();
+    private final CommandAction defaultCommand = (MessageCreateEvent e) -> {
+        e.getChannel().sendMessage("Sorry, there is no command with this name!");
+    };
     public MainListener(){
         commands.put("!image",e -> {
             e.getChannel().sendMessage(new EmbedBuilder().setImage(new File("src/main/images/download.jpg")));
@@ -20,6 +23,6 @@ public class MainListener implements MessageCreateListener{
     }
     @Override
     public void onMessageCreate(MessageCreateEvent e) {
-        commands.get(e.getMessage().getContent().split(" ")[0]).action(e);
+        if(e.getMessage().getContent().startsWith("!"))commands.getOrDefault(e.getMessage().getContent().split(" ")[0],defaultCommand).action(e);
     }
 }
