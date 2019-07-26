@@ -14,9 +14,9 @@ public class Main {
     public static final Random r = new Random();
     private final PlayerFactory playerFactory = new PlayerFactory();
     public Main(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Token:");
-        token = scanner.next();//System.getenv("token");
+        /*Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Token:");*/
+        token = System.getenv("token1");
         DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
 
         System.out.println("You can invite me by using the following url: " + api.createBotInvite());
