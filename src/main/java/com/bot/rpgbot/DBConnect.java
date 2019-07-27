@@ -11,7 +11,7 @@ import java.sql.Statement;
  * @author Charlie
  */
 public class DBConnect {
-    private String url = System.getenv("CLEARDB_DATABASE_URL"), user = System.getenv("DBUsername"), pass = System.getenv("DBPass");
+    private String url = System.getenv("JDBC_DATABASE_URL"), user = System.getenv("DBUsername"), pass = System.getenv("DBPass");
     private final Connection conn;
 
     public DBConnect() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
