@@ -16,7 +16,7 @@ public class DBConnect {
 
     public DBConnect() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-        this.conn = DriverManager.getConnection(url, user, pass);
+        this.conn = DriverManager.getConnection(url);
         Statement stmt = conn.createStatement();
         stmt.executeQuery("CREATE DATABASE test;");
         stmt.executeQuery("CREATE TABLE testTable("
