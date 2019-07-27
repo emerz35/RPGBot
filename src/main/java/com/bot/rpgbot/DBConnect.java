@@ -18,11 +18,11 @@ public class DBConnect {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         this.conn = DriverManager.getConnection(url);
         Statement stmt = conn.createStatement();
-        stmt.executeQuery("CREATE DATABASE test;");
-        stmt.executeQuery("CREATE TABLE testTable("
+        stmt.execute("CREATE DATABASE test;");
+        stmt.execute("CREATE TABLE testTable("
                 + "Number int"
                 + ");");
-        stmt.executeQuery("INSERT INTO testTable VALUES (2);");
+        stmt.execute("INSERT INTO testTable VALUES (2);");
     }
     public int databaseTest() throws SQLException{
         Statement stmt = conn.createStatement();
