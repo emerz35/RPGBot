@@ -18,7 +18,7 @@ public class DBConnect {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         this.conn = DriverManager.getConnection(url);
         Statement stmt = conn.createStatement();
-        //stmt.execute("CREATE DATABASE test;");
+        stmt.executeUpdate("DROP TABLE IF EXISTS testTable");
         stmt.execute("CREATE TABLE testTable("
                 + "Number int"
                 + ");");
