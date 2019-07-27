@@ -14,7 +14,8 @@ public class DBConnect {
     private String url = System.getenv("CLEARDB_DATABASE_URL"), user = System.getenv("DBUsername"), pass = System.getenv("DBPass");
     private final Connection conn;
 
-    public DBConnect() throws SQLException{
+    public DBConnect() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
         this.conn = DriverManager.getConnection(url, user, pass);
         Statement stmt = conn.createStatement();
         stmt.executeQuery("CREATE DATABASE test;");
