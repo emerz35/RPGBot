@@ -26,7 +26,7 @@ public class MainListener implements MessageCreateListener{
         commands.put("!database",e -> {
             try {
                 e.getChannel().sendMessage("" + new DBConnect().databaseTest());
-            } catch (SQLException|ClassNotFoundException ex) {
+            } catch (SQLException|ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
                 Logger.getLogger(MainListener.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
