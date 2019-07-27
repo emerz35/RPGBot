@@ -27,6 +27,7 @@ public class DBConnect {
     public int databaseTest() throws SQLException{
         Statement stmt = conn.createStatement();
         ResultSet results = stmt.executeQuery("SELECT Number FROM testTable;");
+        results.first();
         return results.getInt(1);
     }
 }
