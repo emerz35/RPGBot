@@ -1,4 +1,4 @@
-package com.bot.objects;
+package com.bot.entities;
 
 import com.bot.items.armour.Armour;
 import com.bot.rpgbot.AttackEvent;
@@ -8,10 +8,10 @@ import com.bot.items.weapons.Weapon;
  *
  * @author Charlie Hands
  */
-public abstract class Object {
+public abstract class Entity {
     private Weapon weapon;
     private Armour armour;
-    public Object(Weapon weapon, Armour armour){
+    public Entity(Weapon weapon, Armour armour){
         this.weapon = weapon;
         this.armour = armour;
     }

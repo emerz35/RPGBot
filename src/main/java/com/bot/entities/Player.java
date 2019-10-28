@@ -1,4 +1,4 @@
-package com.bot.objects;
+package com.bot.entities;
 
 import com.bot.containers.Storage;
 import com.bot.items.Item;
@@ -10,7 +10,7 @@ import org.javacord.api.entity.user.User;
  *
  * @author Charlie Hands
  */
-public class Player extends Object{
+public class Player extends Entity{
     private final User user;
     private final Storage<Item> items = new Storage();
     private int money = 100;
