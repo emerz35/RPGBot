@@ -29,7 +29,7 @@ public class MainListener implements MessageCreateListener{
             }
         });
         commands.put("!databaseURL",e->{
-            System.out.println(""+System.getenv("JDBC_DATABASE_URL"));
+            e.getChannel().sendMessage(""+System.getenv("JDBC_DATABASE_URL"));
         });
     }
     @Override
