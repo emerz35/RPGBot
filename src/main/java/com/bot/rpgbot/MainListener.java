@@ -28,6 +28,9 @@ public class MainListener implements MessageCreateListener{
                 e.getChannel().sendMessage(ex.getMessage());
             }
         });
+        commands.put("!databaseURL",e->{
+            System.out.println(""+System.getenv("JDBC_DATABASE_URL"));
+        });
     }
     @Override
     public void onMessageCreate(MessageCreateEvent e) {
