@@ -3,8 +3,6 @@ package com.bot.rpgbot;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.javacord.api.entity.message.embed.EmbedBuilder;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
@@ -25,9 +23,9 @@ public class MainListener implements MessageCreateListener{
         });
         commands.put("!database",e -> {
             try {
-                e.getChannel().sendMessage("" + new DBConnect().databaseTest());
-            } catch (SQLException|ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-                Logger.getLogger(MainListener.class.getName()).log(Level.SEVERE, null, ex);
+                e.getChannel().sendMessage("" + DBConnect.getInstance().databaseTest());
+            } catch (SQLException ex) {
+                e.getChannel().sendMessage(ex.getMessage());
             }
         });
     }

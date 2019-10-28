@@ -13,7 +13,7 @@ public class PlayerFactory {
     private Weapon starterWeapon;
     private Armour starterArmour;
     public Player createPlayer(User user){
-        //Create Player and add to database
+        
         return new Player(starterWeapon, starterArmour, user);
     }
 }

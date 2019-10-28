@@ -3,7 +3,6 @@ package com.bot.rpgbot;
 import java.util.Random;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
-import java.util.Scanner;
 
 /**
  *
